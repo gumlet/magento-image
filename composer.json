@@ -1,0 +1,28 @@
+{
+  "name": "gumlet/module-image",
+  "description": "Magento 2 module to append width (w) parameters to product and media image URLs for optimized image delivery.",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": ["MIT"],
+  "authors": [
+    {
+      "name": "Gumlet",
+      "email": "support@gumlet.com",
+      "homepage": "https://www.gumlet.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "magento/framework": ">=102.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gumlet\\Image\\": "Image/"
+    },
+    "files": [
+      "Image/registration.php"
+    ]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
