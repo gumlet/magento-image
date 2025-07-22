@@ -1,0 +1,8 @@
+# Magento module .gitignore
+/vendor/
+/node_modules/
+/.idea/
+/.vscode/
+*.log
+.DS_Store
+composer.lock
