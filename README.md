@@ -1,6 +1,6 @@
-# Gumlet_Image Magento 2 Module
+# Gumlet Image Magento 2 Module
 
-Automatically appends width (`w`) parameters to product and media image URLs in Magento, enabling optimized image delivery for CDNs like Gumlet, Imgix, etc.
+Automatically optimize images in Magento using Gumlet CDN.
 
 ## Features
 - Appends `w` (width) parameter to all product and media image URLs
