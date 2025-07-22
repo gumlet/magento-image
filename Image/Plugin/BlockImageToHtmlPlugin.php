@@ -3,21 +3,17 @@ namespace Gumlet\Image\Plugin;
 
 use Magento\Catalog\Block\Product\Image as BlockImage;
 use Magento\Framework\View\ConfigInterface;
-use Psr\Log\LoggerInterface;
 
 class BlockImageToHtmlPlugin
 {
     /** @var ConfigInterface */
     private $viewConfig;
-    /** @var LoggerInterface */
-    private $logger;
+
 
     public function __construct(
         ConfigInterface $viewConfig,
-        LoggerInterface $logger
     ) {
         $this->viewConfig = $viewConfig;
-        $this->logger     = $logger;
     }
 
     /**
@@ -41,7 +37,6 @@ class BlockImageToHtmlPlugin
         }
 
         if (!$w) {
-            // nothing to do
             return $html;
         }
 

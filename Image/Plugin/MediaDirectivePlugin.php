@@ -2,23 +2,19 @@
 namespace Gumlet\Image\Plugin;
 
 use Magento\Cms\Model\Template\Filter;
-use Psr\Log\LoggerInterface;
 
 /**
  * Plugin to add width parameters to WYSIWYG media directive images
  */
 class MediaDirectivePlugin
 {
-    /** @var LoggerInterface */
-    private $logger;
+
     
     /** @var array */
     private $processedUrls = [];
 
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->logger = $logger;
-    }
+    public function __construct() {}
+
 
     /**
      * Add width parameter to media directive URLs
@@ -31,11 +27,9 @@ class MediaDirectivePlugin
     public function afterMediaDirective(Filter $subject, $result, $construction)
     {
         try {
-            // Check if this is an image URL (has image extension)
             if ($this->isImageUrl($result)) {
                 
-                // Create a hash of the original URL to prevent duplicate processing
-                $originalUrl = $this->cleanUrl($result);
+                    $originalUrl = $this->cleanUrl($result);
                 $urlHash = md5($originalUrl);
                 
                 if (isset($this->processedUrls[$urlHash])) {
@@ -52,26 +46,12 @@ class MediaDirectivePlugin
                 if ($width) {
                     $glue = parse_url($result, PHP_URL_QUERY) ? '&' : '?';
                     $result .= $glue . 'w=' . $width;
-                    
-                    // Store the processed URL to prevent duplicate processing
                     $this->processedUrls[$urlHash] = $result;
-                    
-                    $this->logger->info('[Gumlet] Added width to media directive image', [
-                        'originalUrl' => $originalUrl,
-                        'width' => $width,
-                        'finalUrl' => $result,
-                        'urlHash' => $urlHash
-                    ]);
                 } else {
                     $this->processedUrls[$urlHash] = $result;
                 }
             }
-        } catch (\Exception $e) {
-            $this->logger->error('[Gumlet] Error processing media directive: ' . $e->getMessage(), [
-                'originalUrl' => $result,
-                'construction' => $construction
-            ]);
-        }
+        } catch (\Exception $e) {}
 
         return $result;
     }
