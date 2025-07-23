@@ -15,6 +15,15 @@ Automatically optimize images in Magento using Gumlet CDN.
 composer require gumlet/module-image
 ```
 
+#### After Composer Install
+Enable and activate the module in your Magento installation:
+```
+bin/magento module:enable Gumlet_Image
+bin/magento setup:upgrade
+bin/magento setup:di:compile
+bin/magento cache:flush
+```
+
 ### Manual
 1. Copy the `Image` folder to `app/code/Gumlet/` in your Magento installation.
 2. Run:
