@@ -2,7 +2,7 @@
   "name": "gumlet/module-image",
   "description": "Magento 2 module to optimize image delivery for Product and Store Images using Gumlet CDN.",
   "type": "magento2-module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": ["MIT"],
   "authors": [
     {
