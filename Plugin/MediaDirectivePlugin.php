@@ -29,8 +29,8 @@ class MediaDirectivePlugin
         try {
             if ($this->isImageUrl($result)) {
                 
-                    $originalUrl = $this->cleanUrl($result);
-                $urlHash = md5($originalUrl);
+                $originalUrl = $this->cleanUrl($result);
+                $urlHash = hash('sha256', $originalUrl);
                 
                 if (isset($this->processedUrls[$urlHash])) {
                     return $this->processedUrls[$urlHash];

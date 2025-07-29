@@ -3,10 +3,9 @@
 Automatically optimize images in Magento using Gumlet CDN.
 
 ## Features
-- Appends `w` (width) parameter to all product and media image URLs
+- Seamless integration with Gumlet CDN for optimized image delivery
 - Works with product images, CMS, email, and widget images
 - Uses theme configuration for width detection
-- Prevents duplicate URL processing
 
 ## Installation
 
@@ -33,7 +32,7 @@ bin/magento cache:flush
    ```
 
 ## Usage
-No manual configuration required. All product and media images will automatically have a `w` parameter appended.
+No manual configuration required. All product and media images will automatically be optimized using Gumlet CDN.
 
 ## Configuration
 - Width is determined from the theme's `view.xml` or block context.
